@@ -26,13 +26,13 @@ export default function ContactPage() {
 
       <div className="grid gap-12 lg:grid-cols-2">
         {/* Contact Form */}
-        <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+        <section className="border-4 border-black bg-white p-12 dark:border-white dark:bg-black">
           <div className="space-y-6">
             <div className="space-y-2">
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+              <h2 className="text-2xl font-bold">
                 Send a Message
               </h2>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="text-sm">
                 [Form description placeholder - Fill out the form below and I&apos;ll get back to you as soon as possible]
               </p>
             </div>
@@ -41,7 +41,7 @@ export default function ContactPage() {
               <div className="space-y-2">
                 <label
                   htmlFor="name"
-                  className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                  className="text-sm font-medium"
                 >
                   Name *
                 </label>
@@ -50,7 +50,7 @@ export default function ContactPage() {
                   id="name"
                   name="name"
                   placeholder="[Your name placeholder]"
-                  className="w-full rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder:text-zinc-500"
+                  className="w-full border-2 border-black bg-white px-4 py-2.5 text-sm placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary dark:border-white dark:bg-black dark:placeholder:text-zinc-500"
                   required
                   disabled
                 />
@@ -60,7 +60,7 @@ export default function ContactPage() {
               <div className="space-y-2">
                 <label
                   htmlFor="email"
-                  className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                  className="text-sm font-medium"
                 >
                   Email *
                 </label>
@@ -69,7 +69,7 @@ export default function ContactPage() {
                   id="email"
                   name="email"
                   placeholder="[your.email@example.com placeholder]"
-                  className="w-full rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder:text-zinc-500"
+                  className="w-full border-2 border-black bg-white px-4 py-2.5 text-sm placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary dark:border-white dark:bg-black dark:placeholder:text-zinc-500"
                   required
                   disabled
                 />
@@ -79,7 +79,7 @@ export default function ContactPage() {
               <div className="space-y-2">
                 <label
                   htmlFor="subject"
-                  className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                  className="text-sm font-medium"
                 >
                   Subject *
                 </label>
@@ -88,7 +88,7 @@ export default function ContactPage() {
                   id="subject"
                   name="subject"
                   placeholder="[Subject placeholder]"
-                  className="w-full rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder:text-zinc-500"
+                  className="w-full border-2 border-black bg-white px-4 py-2.5 text-sm placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary dark:border-white dark:bg-black dark:placeholder:text-zinc-500"
                   required
                   disabled
                 />
@@ -98,7 +98,7 @@ export default function ContactPage() {
               <div className="space-y-2">
                 <label
                   htmlFor="message"
-                  className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                  className="text-sm font-medium"
                 >
                   Message *
                 </label>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                   name="message"
                   rows={6}
                   placeholder="[Your message placeholder...]"
-                  className="w-full rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:placeholder:text-zinc-500"
+                  className="w-full border-2 border-black bg-white px-4 py-2.5 text-sm placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary dark:border-white dark:bg-black dark:placeholder:text-zinc-500"
                   required
                   disabled
                 />
@@ -182,11 +182,11 @@ export default function ContactPage() {
                 href="https://github.com/ChoccyMarino"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-lg border border-zinc-200 p-3 transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
+                className="flex items-center gap-3 border-2 border-black p-3 transition hover:bg-secondary dark:border-white"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800">
+                <div className="flex h-10 w-10 items-center justify-center border-2 border-black bg-secondary dark:border-white">
                   <svg
-                    className="h-5 w-5 text-zinc-700 dark:text-zinc-300"
+                    className="h-5 w-5"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -194,10 +194,10 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
+                  <p className="text-sm font-medium">
                     GitHub
                   </p>
-                  <p className="text-xs text-zinc-500">@ChoccyMarino</p>
+                  <p className="text-xs text-muted-foreground">@ChoccyMarino</p>
                 </div>
               </a>
 
@@ -205,11 +205,11 @@ export default function ContactPage() {
                 href="https://www.linkedin.com/in/daniel-beh-437aa9334/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-lg border border-zinc-200 p-3 transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
+                className="flex items-center gap-3 border-2 border-black p-3 transition hover:bg-secondary dark:border-white"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800">
+                <div className="flex h-10 w-10 items-center justify-center border-2 border-black bg-secondary dark:border-white">
                   <svg
-                    className="h-5 w-5 text-zinc-700 dark:text-zinc-300"
+                    className="h-5 w-5"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -217,10 +217,10 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
+                  <p className="text-sm font-medium">
                     LinkedIn
                   </p>
-                  <p className="text-xs text-zinc-500">daniel-beh-437aa9334</p>
+                  <p className="text-xs text-muted-foreground">daniel-beh-437aa9334</p>
                 </div>
               </a>
             </CardContent>
@@ -234,12 +234,12 @@ export default function ContactPage() {
             <CardContent>
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-green-500"></div>
-                  <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <div className="h-3 w-3 border-2 border-green-500 bg-green-500"></div>
+                  <p className="text-sm font-medium">
                     [Status placeholder - Available for freelance work]
                   </p>
                 </div>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm">
                   [Description placeholder - Currently accepting new projects and opportunities.
                   Typical response time: within 24 hours]
                 </p>
@@ -250,12 +250,12 @@ export default function ContactPage() {
       </div>
 
       {/* Additional CTA */}
-      <section className="rounded-3xl border border-zinc-200 bg-white p-10 text-center shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="mx-auto max-w-2xl space-y-4">
-          <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+      <section className="border-4 border-black bg-white p-16 text-center dark:border-white dark:bg-black">
+        <div className="mx-auto max-w-2xl space-y-6">
+          <h2 className="text-3xl font-black tracking-tight">
             Prefer to Schedule a Call?
           </h2>
-          <p className="text-base text-zinc-600 dark:text-zinc-400">
+          <p className="text-base">
             [CTA text placeholder - I&apos;m always happy to discuss project ideas, collaboration
             opportunities, or just chat about technology]
           </p>
