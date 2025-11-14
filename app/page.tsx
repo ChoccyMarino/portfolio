@@ -71,31 +71,33 @@ const AnimatedHeading = ({ children, className = "" }: { children: string; class
   const words = children.split(" ");
 
   return (
-    <motion.h2
-      className={className}
-      whileHover={{
-        letterSpacing: "0.05em",
-        transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
-      }}
-    >
-      {words.map((word, index) => (
-        <motion.span
-          key={index}
-          className="inline-block"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{
-            duration: 0.5,
-            delay: index * 0.08,
-            ease: [0.22, 1, 0.36, 1] // Swiss-style easing
-          }}
-        >
-          {word}
-          {index < words.length - 1 ? "\u00A0" : ""}
-        </motion.span>
-      ))}
-    </motion.h2>
+    <div className="relative inline-block">
+      <motion.h2 className={className}>
+        {words.map((word, index) => (
+          <motion.span
+            key={index}
+            className="inline-block"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.08,
+              ease: [0.22, 1, 0.36, 1] // Swiss-style easing
+            }}
+          >
+            {word}
+            {index < words.length - 1 ? "\u00A0" : ""}
+          </motion.span>
+        ))}
+      </motion.h2>
+      <motion.div
+        className="absolute -bottom-1 left-0 h-0.5 bg-primary"
+        initial={{ width: 0 }}
+        whileHover={{ width: "100%" }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      />
+    </div>
   );
 };
 
