@@ -49,17 +49,19 @@ const skills = {
 
 export default function Home() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-20">
       {/* Hero Section */}
       <section
         id="hero"
-        className="border-4 border-black bg-white p-12 dark:border-white dark:bg-black"
+        className="border-4 border-black bg-white p-16 dark:border-white dark:bg-black"
       >
-        <div className="flex flex-col gap-6">
-          <div className="space-y-4">
-            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-              SOFTWARE ENGINEER
-            </p>
+        <div className="flex flex-col gap-8">
+          <div className="space-y-6">
+            <div className="inline-block border-4 border-primary bg-primary px-4 py-2">
+              <p className="text-sm font-black uppercase tracking-[0.3em] text-primary-foreground">
+                SOFTWARE ENGINEER
+              </p>
+            </div>
             <h1 className="text-5xl font-black leading-[0.9] tracking-tighter sm:text-6xl lg:text-7xl">
               Adam Daniel Beh
             </h1>
@@ -95,13 +97,11 @@ export default function Home() {
       {/* About Preview Section */}
       <section
         id="about-preview"
-        className="border-4 border-black bg-white p-12 dark:border-white dark:bg-black"
+        className="border-4 border-black bg-white p-16 dark:border-white dark:bg-black"
       >
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-              About Me
-            </p>
+        <div className="space-y-10">
+          <div className="space-y-4">
+            <div className="h-1 w-20 bg-primary"></div>
             <h2 className="text-4xl font-black tracking-tight">
               Building Modern Web Solutions
             </h2>
@@ -142,13 +142,11 @@ export default function Home() {
       {/* Skills Section */}
       <section
         id="skills"
-        className="border-4 border-black bg-white p-12 dark:border-white dark:bg-black"
+        className="border-4 border-black bg-white p-16 dark:border-white dark:bg-black"
       >
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-              Technical Skills
-            </p>
+        <div className="space-y-10">
+          <div className="space-y-4">
+            <div className="h-1 w-20 bg-primary"></div>
             <h2 className="text-4xl font-black tracking-tight">
               Technologies & Tools
             </h2>
@@ -221,17 +219,15 @@ export default function Home() {
       {/* Featured Projects Section */}
       <section
         id="featured-projects"
-        className="border-4 border-black bg-white p-12 dark:border-white dark:bg-black"
+        className="border-4 border-black bg-white p-16 dark:border-white dark:bg-black"
       >
-        <div className="space-y-8">
-          <div className="space-y-2">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-              Portfolio
-            </p>
+        <div className="space-y-10">
+          <div className="space-y-4">
+            <div className="h-1 w-20 bg-primary"></div>
             <h2 className="text-4xl font-black tracking-tight">
               Featured Projects
             </h2>
-            <p className="pt-2 text-base">
+            <p className="pt-2 text-base max-w-2xl">
               [Section description placeholder - A selection of key projects demonstrating full-stack
               development capabilities]
             </p>
@@ -280,7 +276,7 @@ export default function Home() {
       {/* Contact CTA Section */}
       <section
         id="contact-cta"
-        className="border-4 border-primary bg-primary p-12 text-primary-foreground"
+        className="border-4 border-primary bg-primary p-16 text-primary-foreground"
       >
         <div className="space-y-6">
           <h2 className="text-4xl font-black tracking-tight">
