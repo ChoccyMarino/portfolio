@@ -66,6 +66,37 @@ const hoverAnimations = [
   { rotate: 6, scale: 1.08 }, // rotate + scale
 ];
 
+// Helper component for animated section headings (Swiss style)
+const AnimatedHeading = ({ children, className = "" }: { children: string; className?: string }) => {
+  const words = children.split(" ");
+
+  return (
+    <h2 className={className}>
+      {words.map((word, index) => (
+        <motion.span
+          key={index}
+          className="inline-block"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            duration: 0.5,
+            delay: index * 0.08,
+            ease: [0.22, 1, 0.36, 1] // Swiss-style easing
+          }}
+          whileHover={{
+            letterSpacing: "0.05em",
+            transition: { duration: 0.3 }
+          }}
+        >
+          {word}
+          {index < words.length - 1 ? "\u00A0" : ""}
+        </motion.span>
+      ))}
+    </h2>
+  );
+};
+
 export default function Home() {
   return (
     <div className="space-y-20">
@@ -79,17 +110,41 @@ export default function Home() {
       >
         <div className="flex flex-col gap-8">
           <div className="space-y-6">
-            <div className="inline-block border-4 border-primary bg-primary px-4 py-2">
+            <motion.div
+              className="inline-block border-4 border-primary bg-primary px-4 py-2"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
               <p className="text-sm font-black uppercase tracking-[0.3em] text-primary-foreground">
                 SOFTWARE ENGINEER
               </p>
-            </div>
+            </motion.div>
             <h1 className="text-5xl font-black leading-[0.9] tracking-tighter sm:text-6xl lg:text-7xl">
-              Adam Daniel Beh
+              {"Adam Daniel Beh".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  className="inline-block"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.3 + index * 0.03,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
             </h1>
-            <p className="text-2xl font-bold leading-tight sm:text-3xl">
+            <motion.p
+              className="text-2xl font-bold leading-tight sm:text-3xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
               Full-Stack Developer specializing in .NET and modern JavaScript frameworks
-            </p>
+            </motion.p>
             <p className="max-w-3xl text-lg leading-relaxed">
               [Brief intro placeholder - A motivated and detail-oriented software engineer with experience
               in full-stack web development. Proven ability to deliver complex projects from concept to
@@ -127,10 +182,16 @@ export default function Home() {
       >
         <div className="space-y-10">
           <div className="space-y-4">
-            <div className="h-1 w-20 bg-primary"></div>
-            <h2 className="text-4xl font-black tracking-tight">
+            <motion.div
+              className="h-1 w-20 bg-primary"
+              initial={{ width: 0 }}
+              whileInView={{ width: "5rem" }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            />
+            <AnimatedHeading className="text-4xl font-black tracking-tight">
               Building Modern Web Solutions
-            </h2>
+            </AnimatedHeading>
           </div>
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="space-y-4">
@@ -176,10 +237,16 @@ export default function Home() {
       >
         <div className="space-y-10">
           <div className="space-y-4">
-            <div className="h-1 w-20 bg-primary"></div>
-            <h2 className="text-4xl font-black tracking-tight">
+            <motion.div
+              className="h-1 w-20 bg-primary"
+              initial={{ width: 0 }}
+              whileInView={{ width: "5rem" }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            />
+            <AnimatedHeading className="text-4xl font-black tracking-tight">
               Technologies & Tools
-            </h2>
+            </AnimatedHeading>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div className="space-y-3">
@@ -265,14 +332,26 @@ export default function Home() {
       >
         <div className="space-y-10">
           <div className="space-y-4">
-            <div className="h-1 w-20 bg-primary"></div>
-            <h2 className="text-4xl font-black tracking-tight">
+            <motion.div
+              className="h-1 w-20 bg-primary"
+              initial={{ width: 0 }}
+              whileInView={{ width: "5rem" }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            />
+            <AnimatedHeading className="text-4xl font-black tracking-tight">
               Featured Projects
-            </h2>
-            <p className="pt-2 text-base max-w-2xl">
+            </AnimatedHeading>
+            <motion.p
+              className="pt-2 text-base max-w-2xl"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               [Section description placeholder - A selection of key projects demonstrating full-stack
               development capabilities]
-            </p>
+            </motion.p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
             {featuredProjects.map((project, index) => (
@@ -332,13 +411,19 @@ export default function Home() {
         transition={{ duration: 0.6 }}
       >
         <div className="space-y-6">
-          <h2 className="text-4xl font-black tracking-tight">
+          <AnimatedHeading className="text-4xl font-black tracking-tight">
             Let's Work Together
-          </h2>
-          <p className="max-w-2xl text-lg leading-relaxed">
+          </AnimatedHeading>
+          <motion.p
+            className="max-w-2xl text-lg leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             [CTA text placeholder - Interested in collaborating on a project or hiring for a position?
             I'm always open to discussing new opportunities and interesting challenges.]
-          </p>
+          </motion.p>
           <div className="flex flex-wrap gap-4 pt-2">
             <Button asChild size="lg" variant="secondary">
               <Link href="/contact">Contact Me</Link>
