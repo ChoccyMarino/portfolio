@@ -11,6 +11,8 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import MagneticText from "@/components/MagneticText";
+import React, { useRef, useState } from "react";
 
 const featuredProjects = [
   {
@@ -68,12 +70,49 @@ const hoverAnimations = [
 
 // Helper component for animated section headings (Swiss style)
 const AnimatedHeading = ({ children, className = "" }: { children: string; className?: string }) => {
-  const words = children.split(" ");
+  const ref = useRef<HTMLHeadingElement>(null);
+  const [letterStates, setLetterStates] = useState(
+    Array.from(children).map(() => ({ y: 0 }))
+  );
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLHeadingElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+
+    const newLetterStates = Array.from(children).map((_, i) => {
+      const letterElement = ref.current?.children[i] as HTMLElement;
+      if (!letterElement) return { y: 0 };
+
+      const letterRect = letterElement.getBoundingClientRect();
+      const letterCenterX = letterRect.left - rect.left + letterRect.width / 2;
+
+      const distance = Math.abs(mouseX - letterCenterX);
+      const maxDistance = 150;
+
+      if (distance < maxDistance) {
+        const y = (1 - distance / maxDistance) * -10;
+        return { y };
+      }
+      return { y: 0 };
+    });
+
+    setLetterStates(newLetterStates);
+  };
+
+  const handleMouseLeave = () => {
+    setLetterStates(Array.from(children).map(() => ({ y: 0 })));
+  };
 
   return (
     <div className="relative inline-block">
-      <motion.h2 className={className}>
-        {words.map((word, index) => (
+      <motion.h2
+        ref={ref}
+        className={`${className} flex`}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        {Array.from(children).map((letter, index) => (
           <motion.span
             key={index}
             className="inline-block"
@@ -82,21 +121,27 @@ const AnimatedHeading = ({ children, className = "" }: { children: string; class
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{
-              duration: 0.5,
-              delay: index * 0.08,
-              ease: [0.22, 1, 0.36, 1] // Swiss-style easing
+              duration: 0.4,
+              delay: index * 0.03,
+              ease: [0.22, 1, 0.36, 1]
             }}
           >
-            {word}
-            {index < words.length - 1 ? "\u00A0" : ""}
+            <motion.span
+              className="inline-block cursor-default"
+              animate={{ y: letterStates[index]?.y || 0 }}
+              transition={{ type: "spring", stiffness: 350, damping: 15, mass: 0.5 }}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </motion.span>
           </motion.span>
         ))}
       </motion.h2>
       <motion.div
         className="absolute -bottom-1 left-0 h-0.5 bg-primary"
         initial={{ width: 0 }}
-        whileHover={{ width: "100%" }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        whileInView={{ width: "100%" }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
       />
     </div>
   );
@@ -125,9 +170,7 @@ export default function Home() {
                 SOFTWARE ENGINEER
               </p>
             </motion.div>
-            <h1 className="text-5xl font-black leading-[0.9] tracking-tighter transition-colors hover:text-primary cursor-pointer sm:text-6xl lg:text-7xl">
-              Adam Daniel Beh
-            </h1>
+            <MagneticText text="Adam Daniel Beh" as="h1" className="text-5xl font-black leading-[0.9] tracking-tighter sm:text-6xl lg:text-7xl" />
             <motion.p
               className="text-2xl font-bold leading-tight sm:text-3xl"
               initial={{ opacity: 0, y: 20 }}
@@ -180,7 +223,7 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             />
-            <AnimatedHeading className="text-4xl font-black tracking-tight transition-colors hover:text-primary cursor-pointer">
+            <AnimatedHeading className="text-4xl font-black tracking-tight">
               Building Modern Web Solutions
             </AnimatedHeading>
           </div>
@@ -235,7 +278,7 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             />
-            <AnimatedHeading className="text-4xl font-black tracking-tight transition-colors hover:text-primary cursor-pointer">
+            <AnimatedHeading className="text-4xl font-black tracking-tight">
               Technologies & Tools
             </AnimatedHeading>
           </div>
@@ -334,7 +377,7 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             />
-            <AnimatedHeading className="text-4xl font-black tracking-tight transition-colors hover:text-primary cursor-pointer">
+            <AnimatedHeading className="text-4xl font-black tracking-tight">
               Featured Projects
             </AnimatedHeading>
             <motion.p
@@ -407,7 +450,7 @@ export default function Home() {
         transition={{ duration: 0.6 }}
       >
         <div className="space-y-6">
-          <AnimatedHeading className="text-4xl font-black tracking-tight transition-colors hover:text-primary cursor-pointer">
+          <AnimatedHeading className="text-4xl font-black tracking-tight">
             Let's Work Together
           </AnimatedHeading>
           <motion.p
