@@ -117,7 +117,7 @@ export default function Home() {
                 e-commerce platforms, and creating scalable web applications.]
               </p>
             </div>
-            <div className="space-y-4 border-l-4 border-primary pl-6">
+            <div className="space-y-4 border-4 border-black p-6 dark:border-white">
               <h3 className="text-xl font-bold">
                 Education
               </h3>

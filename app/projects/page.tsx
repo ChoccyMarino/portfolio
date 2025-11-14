@@ -159,33 +159,35 @@ export default function ProjectsPage() {
       </section>
 
       {/* Filter/Stats Section */}
-      <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="flex flex-wrap gap-4">
-          <div className="space-y-1">
-            <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-              {projects.length}
-            </p>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              Total Projects
-            </p>
+      <section>
+        <Card className="p-6">
+          <div className="flex flex-wrap gap-4">
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+                {projects.length}
+              </p>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Total Projects
+              </p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+                {projects.filter((p) => p.status === "In Production").length}
+              </p>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                In Production
+              </p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+                {categories.length}
+              </p>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Categories
+              </p>
+            </div>
           </div>
-          <div className="space-y-1">
-            <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-              {projects.filter((p) => p.status === "In Production").length}
-            </p>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              In Production
-            </p>
-          </div>
-          <div className="space-y-1">
-            <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-              {categories.length}
-            </p>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              Categories
-            </p>
-          </div>
-        </div>
+        </Card>
       </section>
 
       {/* Projects by Category */}
@@ -266,29 +268,31 @@ export default function ProjectsPage() {
       ))}
 
       {/* CTA Section */}
-      <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="space-y-4 text-center">
-          <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-            Interested in Working Together?
-          </h2>
-          <p className="text-base text-zinc-600 dark:text-zinc-400">
-            [CTA text placeholder - Let's discuss how I can help with your next project]
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 pt-2">
-            <Button asChild size="lg">
-              <Link href="/contact">Get in Touch</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <a
-                href="https://github.com/ChoccyMarino"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View GitHub
-              </a>
-            </Button>
+      <section>
+        <Card className="p-10">
+          <div className="space-y-4 text-center">
+            <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+              Interested in Working Together?
+            </h2>
+            <p className="text-base text-zinc-600 dark:text-zinc-400">
+              [CTA text placeholder - Let's discuss how I can help with your next project]
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 pt-2">
+              <Button asChild size="lg">
+                <Link href="/contact">Get in Touch</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a
+                  href="https://github.com/ChoccyMarino"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View GitHub
+                </a>
+              </Button>
+            </div>
           </div>
-        </div>
+        </Card>
       </section>
     </div>
   );

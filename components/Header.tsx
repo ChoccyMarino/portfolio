@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
   NavigationMenu,
@@ -23,8 +24,9 @@ export default function Header() {
       <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center gap-4 px-6 py-4">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-zinc-950 transition-colors hover:text-zinc-700 dark:text-zinc-50 dark:hover:text-white"
+          className="flex items-center gap-2 text-lg font-semibold tracking-tight text-zinc-950 transition-colors hover:text-zinc-700 dark:text-zinc-50 dark:hover:text-white"
         >
+          <Image src="/Logo.png" alt="Logo" width={32} height={32} />
           Portfolio
         </Link>
 
