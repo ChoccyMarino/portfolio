@@ -1,14 +1,25 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export default function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const currentTheme = theme === "system" ? resolvedTheme : theme;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = mounted
+    ? theme === "system"
+      ? resolvedTheme
+      : theme
+    : undefined;
   const isDark = currentTheme === "dark";
 
   const toggleTheme = () => {
+    if (!mounted) return;
     setTheme(isDark ? "light" : "dark");
   };
 
@@ -18,10 +29,18 @@ export default function ThemeToggle() {
       aria-label="Toggle theme"
       className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-300 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-900 hover:text-zinc-950 dark:border-zinc-700 dark:text-zinc-100 dark:hover:border-zinc-400"
       onClick={toggleTheme}
-      disabled={!resolvedTheme}
+      disabled={!mounted}
     >
       <span className="text-lg" aria-hidden="true">
-        {resolvedTheme ? (isDark ? <i className="fas fa-moon"></i> : <i className="fas fa-sun"></i>) : "…"}
+        {mounted ? (
+          isDark ? (
+            <i className="fas fa-moon"></i>
+          ) : (
+            <i className="fas fa-sun"></i>
+          )
+        ) : (
+          "..."
+        )}
       </span>
     </button>
   );
