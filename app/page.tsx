@@ -50,6 +50,22 @@ const skills = {
   core: ["Full-Stack Development", "System Architecture", "Database Design", "API Integration"],
 };
 
+// Fun hover animations for skill tags - each gets a unique effect!
+const hoverAnimations = [
+  { scale: 1.1, rotate: 5 }, // scale + slight rotate
+  { scale: 1.15, y: -5 }, // scale + bounce up
+  { scale: 1.05, rotate: -5 }, // subtle scale + rotate opposite
+  { x: 5, scale: 1.08 }, // slide right + scale
+  { y: -8, rotate: 3 }, // bounce + tilt
+  { scale: 1.12, rotate: -3 }, // bigger scale + rotate
+  { scale: 1.1, x: -3 }, // scale + slide left
+  { y: -5, scale: 1.1, rotate: 2 }, // combo bounce/scale/rotate
+  { scale: 1.15, rotate: 8 }, // big scale + bigger rotate
+  { x: 4, y: -4, scale: 1.05 }, // diagonal shift
+  { scale: 1.12 }, // simple scale
+  { rotate: 6, scale: 1.08 }, // rotate + scale
+];
+
 export default function Home() {
   return (
     <div className="space-y-20">
@@ -171,13 +187,15 @@ export default function Home() {
                 Languages
               </h3>
               <div className="flex flex-wrap gap-2">
-                {skills.languages.map((skill) => (
-                  <span
+                {skills.languages.map((skill, index) => (
+                  <motion.span
                     key={skill}
-                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white"
+                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white cursor-pointer"
+                    whileHover={hoverAnimations[index % hoverAnimations.length]}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -186,13 +204,15 @@ export default function Home() {
                 Frameworks
               </h3>
               <div className="flex flex-wrap gap-2">
-                {skills.frameworks.map((skill) => (
-                  <span
+                {skills.frameworks.map((skill, index) => (
+                  <motion.span
                     key={skill}
-                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white"
+                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white cursor-pointer"
+                    whileHover={hoverAnimations[index % hoverAnimations.length]}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -201,13 +221,15 @@ export default function Home() {
                 Tools & Deployment
               </h3>
               <div className="flex flex-wrap gap-2">
-                {skills.tools.map((skill) => (
-                  <span
+                {skills.tools.map((skill, index) => (
+                  <motion.span
                     key={skill}
-                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white"
+                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white cursor-pointer"
+                    whileHover={hoverAnimations[index % hoverAnimations.length]}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -216,13 +238,15 @@ export default function Home() {
                 Core Competencies
               </h3>
               <div className="flex flex-wrap gap-2">
-                {skills.core.map((skill) => (
-                  <span
+                {skills.core.map((skill, index) => (
+                  <motion.span
                     key={skill}
-                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white"
+                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white cursor-pointer"
+                    whileHover={hoverAnimations[index % hoverAnimations.length]}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
