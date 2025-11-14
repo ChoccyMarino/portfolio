@@ -49,24 +49,24 @@ const skills = {
 
 export default function Home() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-8">
       {/* Hero Section */}
       <section
         id="hero"
-        className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
+        className="border-4 border-black bg-white p-12 dark:border-white dark:bg-black"
       >
         <div className="flex flex-col gap-6">
           <div className="space-y-4">
-            <p className="text-sm uppercase tracking-[0.3em] text-zinc-500">
+            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
               SOFTWARE ENGINEER
             </p>
-            <h1 className="text-4xl font-bold leading-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl lg:text-6xl">
+            <h1 className="text-5xl font-black leading-[0.9] tracking-tighter sm:text-6xl lg:text-7xl">
               Adam Daniel Beh
             </h1>
-            <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-2xl">
+            <p className="text-2xl font-bold leading-tight sm:text-3xl">
               Full-Stack Developer specializing in .NET and modern JavaScript frameworks
             </p>
-            <p className="text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+            <p className="max-w-3xl text-lg leading-relaxed">
               [Brief intro placeholder - A motivated and detail-oriented software engineer with experience
               in full-stack web development. Proven ability to deliver complex projects from concept to
               deployment, with a focus on system modernization and creating user-friendly applications.]
@@ -95,37 +95,37 @@ export default function Home() {
       {/* About Preview Section */}
       <section
         id="about-preview"
-        className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
+        className="border-4 border-black bg-white p-12 dark:border-white dark:bg-black"
       >
         <div className="space-y-6">
-          <div className="space-y-1">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
               About Me
             </p>
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+            <h2 className="text-4xl font-black tracking-tight">
               Building Modern Web Solutions
             </h2>
           </div>
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid gap-8 lg:grid-cols-2">
             <div className="space-y-4">
-              <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
+              <p className="text-base leading-relaxed">
                 [Bio content placeholder - Currently working with Academy of Medicine of Malaysia and
                 associated institutions, architecting full-stack solutions for medical organizations.]
               </p>
-              <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
+              <p className="text-base leading-relaxed">
                 [Experience summary placeholder - Specialized in modernizing legacy systems, building
                 e-commerce platforms, and creating scalable web applications.]
               </p>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+            <div className="space-y-4 border-l-4 border-primary pl-6">
+              <h3 className="text-xl font-bold">
                 Education
               </h3>
               <div className="space-y-2">
-                <p className="font-medium text-zinc-700 dark:text-zinc-300">
+                <p className="font-bold">
                   [School name placeholder]
                 </p>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm text-muted-foreground">
                   SPM Graduate - May 2024
                 </p>
               </div>
@@ -142,27 +142,27 @@ export default function Home() {
       {/* Skills Section */}
       <section
         id="skills"
-        className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
+        className="border-4 border-black bg-white p-12 dark:border-white dark:bg-black"
       >
         <div className="space-y-6">
-          <div className="space-y-1">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
               Technical Skills
             </p>
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+            <h2 className="text-4xl font-black tracking-tight">
               Technologies & Tools
             </h2>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div className="space-y-3">
-              <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
+              <h3 className="text-base font-bold uppercase tracking-wider">
                 Languages
               </h3>
               <div className="flex flex-wrap gap-2">
                 {skills.languages.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white"
                   >
                     {skill}
                   </span>
@@ -170,14 +170,14 @@ export default function Home() {
               </div>
             </div>
             <div className="space-y-3">
-              <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
+              <h3 className="text-base font-bold uppercase tracking-wider">
                 Frameworks
               </h3>
               <div className="flex flex-wrap gap-2">
                 {skills.frameworks.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white"
                   >
                     {skill}
                   </span>
@@ -185,14 +185,14 @@ export default function Home() {
               </div>
             </div>
             <div className="space-y-3">
-              <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
+              <h3 className="text-base font-bold uppercase tracking-wider">
                 Tools & Deployment
               </h3>
               <div className="flex flex-wrap gap-2">
                 {skills.tools.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white"
                   >
                     {skill}
                   </span>
@@ -200,14 +200,14 @@ export default function Home() {
               </div>
             </div>
             <div className="space-y-3">
-              <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
+              <h3 className="text-base font-bold uppercase tracking-wider">
                 Core Competencies
               </h3>
               <div className="flex flex-wrap gap-2">
                 {skills.core.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                    className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white"
                   >
                     {skill}
                   </span>
@@ -221,17 +221,17 @@ export default function Home() {
       {/* Featured Projects Section */}
       <section
         id="featured-projects"
-        className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
+        className="border-4 border-black bg-white p-12 dark:border-white dark:bg-black"
       >
-        <div className="space-y-6">
-          <div className="space-y-1">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500">
+        <div className="space-y-8">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
               Portfolio
             </p>
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+            <h2 className="text-4xl font-black tracking-tight">
               Featured Projects
             </h2>
-            <p className="pt-2 text-base text-zinc-600 dark:text-zinc-400">
+            <p className="pt-2 text-base">
               [Section description placeholder - A selection of key projects demonstrating full-stack
               development capabilities]
             </p>
@@ -241,35 +241,31 @@ export default function Home() {
               <Link
                 key={project.title}
                 href={project.href}
-                className="block"
+                className="group block border-4 border-black bg-white p-6 transition-all hover:bg-black hover:text-white dark:border-white dark:bg-black dark:hover:bg-white dark:hover:text-black"
               >
-                <Card className="h-full transition hover:border-primary/70 hover:shadow-lg">
-                  <CardHeader>
-                    <div className="space-y-2">
-                      <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
-                        {project.category}
-                      </p>
-                      <CardTitle className="text-xl font-bold">
-                        {project.title}
-                      </CardTitle>
-                    </div>
-                    <CardDescription className="pt-2">
-                      {project.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-primary">
+                      {project.category}
+                    </p>
+                    <h3 className="text-2xl font-black leading-tight">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm leading-relaxed opacity-80">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="border-2 border-current px-2 py-1 text-xs font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -284,21 +280,21 @@ export default function Home() {
       {/* Contact CTA Section */}
       <section
         id="contact-cta"
-        className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
+        className="border-4 border-primary bg-primary p-12 text-primary-foreground"
       >
-        <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+        <div className="space-y-6">
+          <h2 className="text-4xl font-black tracking-tight">
             Let's Work Together
           </h2>
-          <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+          <p className="max-w-2xl text-lg leading-relaxed">
             [CTA text placeholder - Interested in collaborating on a project or hiring for a position?
             I'm always open to discussing new opportunities and interesting challenges.]
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <Button asChild size="lg">
+            <Button asChild size="lg" variant="secondary">
               <Link href="/contact">Contact Me</Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="border-2 border-current bg-transparent text-current hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
               <a
                 href="https://github.com/ChoccyMarino"
                 target="_blank"
@@ -307,7 +303,7 @@ export default function Home() {
                 View GitHub
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="border-2 border-current bg-transparent text-current hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
               <a href="mailto:your.email@example.com">
                 Send Email
               </a>
