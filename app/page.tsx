@@ -71,7 +71,13 @@ const AnimatedHeading = ({ children, className = "" }: { children: string; class
   const words = children.split(" ");
 
   return (
-    <h2 className={className}>
+    <motion.h2
+      className={className}
+      whileHover={{
+        letterSpacing: "0.05em",
+        transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
+      }}
+    >
       {words.map((word, index) => (
         <motion.span
           key={index}
@@ -84,16 +90,12 @@ const AnimatedHeading = ({ children, className = "" }: { children: string; class
             delay: index * 0.08,
             ease: [0.22, 1, 0.36, 1] // Swiss-style easing
           }}
-          whileHover={{
-            letterSpacing: "0.05em",
-            transition: { duration: 0.3 }
-          }}
         >
           {word}
           {index < words.length - 1 ? "\u00A0" : ""}
         </motion.span>
       ))}
-    </h2>
+    </motion.h2>
   );
 };
 
