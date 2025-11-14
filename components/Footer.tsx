@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const contactLinks = [
-  { label: "hello@example.com", href: "mailto:hello@example.com" },
-  { label: "LinkedIn", href: "https://www.linkedin.com" },
-  { label: "GitHub", href: "https://github.com" },
+  { label: "danielbeh6@gmail.com", href: "mailto:danielbeh6@gmail.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/daniel-beh-437aa9334/" },
+  { label: "GitHub", href: "https://github.com/Choccymarino" },
 ];
 
 export default function Footer() {

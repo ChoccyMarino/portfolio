@@ -144,7 +144,7 @@ export default function ContactPage() {
                   href="mailto:your.email@example.com"
                   className="block text-base text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                 >
-                  [your.email@example.com placeholder]
+                    danielbeh6@gmail.com
                 </a>
               </div>
               <div className="space-y-2">
@@ -202,7 +202,7 @@ export default function ContactPage() {
               </a>
 
               <a
-                href="[LinkedIn URL placeholder]"
+                href="https://www.linkedin.com/in/daniel-beh-437aa9334/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-lg border border-zinc-200 p-3 transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
@@ -220,7 +220,7 @@ export default function ContactPage() {
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
                     LinkedIn
                   </p>
-                  <p className="text-xs text-zinc-500">[Daniel Beh placeholder]</p>
+                  <p className="text-xs text-zinc-500">daniel-beh-437aa9334</p>
                 </div>
               </a>
             </CardContent>
