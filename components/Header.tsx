@@ -1,5 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -19,20 +28,22 @@ export default function Header() {
           Portfolio
         </Link>
 
-        <nav
-          aria-label="Primary"
-          className="flex flex-1 flex-wrap items-center justify-center gap-4 text-sm font-medium text-zinc-600 dark:text-zinc-300 sm:justify-center"
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="transition-colors hover:text-zinc-950 dark:hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <NavigationMenu className="flex flex-1 justify-center">
+          <NavigationMenuList className="flex flex-wrap items-center justify-center gap-1 text-sm text-zinc-600 dark:text-zinc-300">
+            {navItems.map((item) => (
+              <NavigationMenuItem key={item.label}>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href={item.href}
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    {item.label}
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
 
         <div className="flex items-center gap-3">
           <ThemeToggle />

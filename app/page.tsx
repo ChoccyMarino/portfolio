@@ -1,4 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const resourceLinks = [
   {
@@ -42,6 +50,14 @@ export default function Home() {
               To get started, edit the <code>app/page.tsx</code> file and begin
               shaping the story you want your portfolio to tell.
             </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Button asChild size="lg">
+                <Link href="/projects">View projects</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link href="/contact">Get in touch</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -61,20 +77,22 @@ export default function Home() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
             {resourceLinks.map((resource) => (
-              <a
+              <Link
                 key={resource.title}
                 href={resource.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-full flex-col gap-3 rounded-2xl border border-zinc-200/70 p-6 transition hover:border-zinc-900 hover:bg-zinc-50 dark:border-zinc-800/80 dark:hover:border-zinc-500 dark:hover:bg-zinc-900/60"
+                className="block"
               >
-                <span className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
-                  {resource.title}
-                </span>
-                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                  {resource.description}
-                </p>
-              </a>
+                <Card className="h-full transition hover:border-primary/70 hover:shadow-lg">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-semibold">
+                      {resource.title}
+                    </CardTitle>
+                    <CardDescription>{resource.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -93,28 +111,27 @@ export default function Home() {
             starter straight to Vercel and continue iterating.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a
-              className="flex items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
-              href="mailto:hello@example.com"
-            >
-              Email me
-            </a>
-            <a
-              className="flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-900 hover:text-zinc-950 dark:border-zinc-700 dark:text-zinc-100 dark:hover:border-zinc-400"
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Deploy now
-            </a>
-            <a
-              className="flex items-center justify-center rounded-full border border-transparent px-6 py-3 text-sm font-semibold text-zinc-900 underline-offset-4 hover:underline dark:text-zinc-50"
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Documentation
-            </a>
+            <Button asChild size="lg">
+              <a href="mailto:hello@example.com">Email me</a>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a
+                href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Deploy now
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="ghost">
+              <a
+                href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Documentation
+              </a>
+            </Button>
           </div>
         </div>
       </section>
