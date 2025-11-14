@@ -55,37 +55,37 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0 0 0);
 
-  /* Swiss Design: Bold red accent (Swiss flag red) */
-  --primary: oklch(0.55 0.22 29); /* Vibrant red */
-  --primary-foreground: oklch(1 0 0); /* White on red */
+  /* Swiss Design: Electric blue accent */
+  --primary: oklch(0.55 0.26 260); /* Vibrant electric blue */
+  --primary-foreground: oklch(1 0 0); /* White on blue */
 
   /* Neutral grays for secondary elements */
   --secondary: oklch(0.95 0 0);
   --secondary-foreground: oklch(0 0 0);
   --muted: oklch(0.96 0 0);
   --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.55 0.22 29); /* Same as primary - bold red */
+  --accent: oklch(0.55 0.26 260); /* Same as primary - electric blue */
   --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.55 0.22 29);
+  --destructive: oklch(0.55 0.22 29); /* Keep red for destructive actions */
 
   /* Swiss Design: Strong borders */
   --border: oklch(0 0 0); /* Black borders */
   --input: oklch(0.85 0 0);
-  --ring: oklch(0.55 0.22 29); /* Red focus ring */
+  --ring: oklch(0.55 0.26 260); /* Blue focus ring */
 
-  --chart-1: oklch(0.55 0.22 29);
+  --chart-1: oklch(0.55 0.26 260);
   --chart-2: oklch(0 0 0);
   --chart-3: oklch(0.45 0 0);
   --chart-4: oklch(0.75 0 0);
   --chart-5: oklch(0.85 0 0);
   --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0 0 0);
-  --sidebar-primary: oklch(0.55 0.22 29);
+  --sidebar-primary: oklch(0.55 0.26 260);
   --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.96 0 0);
   --sidebar-accent-foreground: oklch(0 0 0);
   --sidebar-border: oklch(0 0 0);
-  --sidebar-ring: oklch(0.55 0.22 29);
+  --sidebar-ring: oklch(0.55 0.26 260);
 }
 
 .dark {
@@ -97,37 +97,37 @@
   --popover: oklch(0.15 0 0);
   --popover-foreground: oklch(1 0 0);
 
-  /* Swiss Design: Bold red accent remains the same */
-  --primary: oklch(0.6 0.24 29); /* Slightly brighter red for dark mode */
-  --primary-foreground: oklch(0 0 0); /* Black on red for dark mode */
+  /* Swiss Design: Electric blue accent for dark mode */
+  --primary: oklch(0.6 0.28 260); /* Slightly brighter electric blue for dark mode */
+  --primary-foreground: oklch(0 0 0); /* Black on blue for dark mode */
 
   /* Dark mode neutrals */
   --secondary: oklch(0.2 0 0);
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.25 0 0);
   --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.6 0.24 29); /* Same as primary - bold red */
+  --accent: oklch(0.6 0.28 260); /* Same as primary - electric blue */
   --accent-foreground: oklch(0 0 0);
-  --destructive: oklch(0.6 0.24 29);
+  --destructive: oklch(0.6 0.24 29); /* Keep red for destructive actions */
 
   /* Swiss Design: Strong borders in dark mode */
   --border: oklch(0.3 0 0); /* Dark gray borders, not pure black */
   --input: oklch(0.25 0 0);
-  --ring: oklch(0.6 0.24 29); /* Red focus ring */
+  --ring: oklch(0.6 0.28 260); /* Blue focus ring */
 
-  --chart-1: oklch(0.6 0.24 29);
+  --chart-1: oklch(0.6 0.28 260);
   --chart-2: oklch(0.85 0 0);
   --chart-3: oklch(0.65 0 0);
   --chart-4: oklch(0.45 0 0);
   --chart-5: oklch(0.35 0 0);
   --sidebar: oklch(0.1 0 0);
   --sidebar-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(0.6 0.24 29);
+  --sidebar-primary: oklch(0.6 0.28 260);
   --sidebar-primary-foreground: oklch(0 0 0);
   --sidebar-accent: oklch(0.2 0 0);
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.3 0 0);
-  --sidebar-ring: oklch(0.6 0.24 29);
+  --sidebar-ring: oklch(0.6 0.28 260);
 }
 
 @layer base {
