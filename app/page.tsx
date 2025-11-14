@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -8,6 +10,7 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const featuredProjects = [
   {
@@ -51,9 +54,12 @@ export default function Home() {
   return (
     <div className="space-y-20">
       {/* Hero Section */}
-      <section
+      <motion.section
         id="hero"
         className="border-4 border-black bg-white p-16 dark:border-white dark:bg-black"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
         <div className="flex flex-col gap-8">
           <div className="space-y-6">
@@ -92,12 +98,16 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* About Preview Section */}
-      <section
+      <motion.section
         id="about-preview"
         className="border-4 border-black bg-white p-16 dark:border-white dark:bg-black"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
       >
         <div className="space-y-10">
           <div className="space-y-4">
@@ -137,12 +147,16 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Skills Section */}
-      <section
+      <motion.section
         id="skills"
         className="border-4 border-black bg-white p-16 dark:border-white dark:bg-black"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
       >
         <div className="space-y-10">
           <div className="space-y-4">
@@ -214,12 +228,16 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Featured Projects Section */}
-      <section
+      <motion.section
         id="featured-projects"
         className="border-4 border-black bg-white p-16 dark:border-white dark:bg-black"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
       >
         <div className="space-y-10">
           <div className="space-y-4">
@@ -233,12 +251,18 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
-            {featuredProjects.map((project) => (
-              <Link
+            {featuredProjects.map((project, index) => (
+              <motion.div
                 key={project.title}
-                href={project.href}
-                className="group block border-4 border-black bg-white p-6 transition-all hover:bg-black hover:text-white dark:border-white dark:bg-black dark:hover:bg-white dark:hover:text-black"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
+                <Link
+                  href={project.href}
+                  className="group block border-4 border-black bg-white p-6 transition-all hover:bg-black hover:text-white dark:border-white dark:bg-black dark:hover:bg-white dark:hover:text-black"
+                >
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-primary">
@@ -262,7 +286,8 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-              </Link>
+                </Link>
+              </motion.div>
             ))}
           </div>
           <div className="pt-2">
@@ -271,12 +296,16 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact CTA Section */}
-      <section
+      <motion.section
         id="contact-cta"
         className="border-4 border-primary bg-primary p-16 text-primary-foreground"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
       >
         <div className="space-y-6">
           <h2 className="text-4xl font-black tracking-tight">
@@ -306,7 +335,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }
