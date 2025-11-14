@@ -52,18 +52,18 @@ const skills = {
 
 // Fun hover animations for skill tags - each gets a unique effect!
 const hoverAnimations = [
-  { scale: 1.1, rotate: 5 }, // scale + slight rotate
-  { scale: 1.15, y: -5 }, // scale + bounce up
-  { scale: 1.05, rotate: -5 }, // subtle scale + rotate opposite
-  { x: 5, scale: 1.08 }, // slide right + scale
-  { y: -8, rotate: 3 }, // bounce + tilt
-  { scale: 1.12, rotate: -3 }, // bigger scale + rotate
-  { scale: 1.1, x: -3 }, // scale + slide left
-  { y: -5, scale: 1.1, rotate: 2 }, // combo bounce/scale/rotate
-  { scale: 1.15, rotate: 8 }, // big scale + bigger rotate
-  { x: 4, y: -4, scale: 1.05 }, // diagonal shift
-  { scale: 1.12 }, // simple scale
-  { rotate: 6, scale: 1.08 }, // rotate + scale
+  { scale: 1.1, rotate: 5 },
+  { scale: 1.15, rotate: -5 },
+  { scale: 1.05, rotate: 10 },
+  { scale: 1.1, rotate: -10 },
+  { scale: 1.12, rotate: 3 },
+  { scale: 1.08, rotate: -3 },
+  { scale: 1.1, rotate: 7 },
+  { scale: 1.15, rotate: -7 },
+  { scale: 1.05, rotate: -12 },
+  { scale: 1.12, rotate: 12 },
+  { scale: 1.1 },
+  { rotate: 6 },
 ];
 
 // Helper component for animated section headings (Swiss style)
@@ -77,6 +77,7 @@ const AnimatedHeading = ({ children, className = "" }: { children: string; class
           <motion.span
             key={index}
             className="inline-block"
+            style={{ willChange: 'transform, opacity' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -124,22 +125,8 @@ export default function Home() {
                 SOFTWARE ENGINEER
               </p>
             </motion.div>
-            <h1 className="text-5xl font-black leading-[0.9] tracking-tighter sm:text-6xl lg:text-7xl">
-              {"Adam Daniel Beh".split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  className="inline-block"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.3 + index * 0.03,
-                    ease: [0.22, 1, 0.36, 1]
-                  }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
+            <h1 className="text-5xl font-black leading-[0.9] tracking-tighter transition-colors hover:text-primary cursor-pointer sm:text-6xl lg:text-7xl">
+              Adam Daniel Beh
             </h1>
             <motion.p
               className="text-2xl font-bold leading-tight sm:text-3xl"
@@ -193,7 +180,7 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             />
-            <AnimatedHeading className="text-4xl font-black tracking-tight">
+            <AnimatedHeading className="text-4xl font-black tracking-tight transition-colors hover:text-primary cursor-pointer">
               Building Modern Web Solutions
             </AnimatedHeading>
           </div>
@@ -248,7 +235,7 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             />
-            <AnimatedHeading className="text-4xl font-black tracking-tight">
+            <AnimatedHeading className="text-4xl font-black tracking-tight transition-colors hover:text-primary cursor-pointer">
               Technologies & Tools
             </AnimatedHeading>
           </div>
@@ -262,8 +249,9 @@ export default function Home() {
                   <motion.span
                     key={skill}
                     className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white cursor-pointer"
+                    style={{ willChange: 'transform' }}
                     whileHover={hoverAnimations[index % hoverAnimations.length]}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                   >
                     {skill}
                   </motion.span>
@@ -279,8 +267,9 @@ export default function Home() {
                   <motion.span
                     key={skill}
                     className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white cursor-pointer"
+                    style={{ willChange: 'transform' }}
                     whileHover={hoverAnimations[index % hoverAnimations.length]}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                   >
                     {skill}
                   </motion.span>
@@ -296,8 +285,9 @@ export default function Home() {
                   <motion.span
                     key={skill}
                     className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white cursor-pointer"
+                    style={{ willChange: 'transform' }}
                     whileHover={hoverAnimations[index % hoverAnimations.length]}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                   >
                     {skill}
                   </motion.span>
@@ -313,8 +303,9 @@ export default function Home() {
                   <motion.span
                     key={skill}
                     className="border-2 border-black bg-secondary px-3 py-1 text-sm font-medium dark:border-white cursor-pointer"
+                    style={{ willChange: 'transform' }}
                     whileHover={hoverAnimations[index % hoverAnimations.length]}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                   >
                     {skill}
                   </motion.span>
@@ -343,7 +334,7 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             />
-            <AnimatedHeading className="text-4xl font-black tracking-tight">
+            <AnimatedHeading className="text-4xl font-black tracking-tight transition-colors hover:text-primary cursor-pointer">
               Featured Projects
             </AnimatedHeading>
             <motion.p
@@ -361,6 +352,7 @@ export default function Home() {
             {featuredProjects.map((project, index) => (
               <motion.div
                 key={project.title}
+                style={{ willChange: 'transform, opacity' }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -415,7 +407,7 @@ export default function Home() {
         transition={{ duration: 0.6 }}
       >
         <div className="space-y-6">
-          <AnimatedHeading className="text-4xl font-black tracking-tight">
+          <AnimatedHeading className="text-4xl font-black tracking-tight transition-colors hover:text-primary cursor-pointer">
             Let's Work Together
           </AnimatedHeading>
           <motion.p
