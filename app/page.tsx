@@ -477,7 +477,7 @@ export default function Home() {
               </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-2 border-current bg-transparent text-current hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
-              <a href="mailto:your.email@example.com">
+              <a href="mailto:danielbeh6@gmail.com">
                 Send Email
               </a>
             </Button>
