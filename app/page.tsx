@@ -14,45 +14,8 @@ import { motion } from "framer-motion";
 import MagneticText from "@/components/MagneticText";
 import React, { useRef, useState } from "react";
 
-const featuredProjects = [
-  {
-    title: "AMM Event & Booking System",
-    category: "Full-Stack Development",
-    description: "[Project description placeholder - Conference and resource management platform]",
-    tags: [".NET", "SQL Server", "Web Forms"],
-    href: "/projects/amm-booking-system",
-  },
-  {
-    title: "MATCVS Workshop Registration",
-    category: "Full-Stack Development",
-    description: "[Project description placeholder - Medical workshop registration with role-based auth]",
-    tags: [".NET", "Entity Framework", "OWIN"],
-    href: "/projects/matcvs-registration",
-  },
-  {
-    title: "Medical Course E-Commerce Platform",
-    category: "Full-Stack Development",
-    description: "[Project description placeholder - Course enrollment with Stripe integration]",
-    tags: [".NET", "Stripe", "iTextSharp"],
-    href: "/projects/medical-course-ecommerce",
-  },
-  {
-    title: "IRBM MyInvois Middleware",
-    category: "Middleware Development",
-    description: "[Project description placeholder - E-commerce compliance middleware for Malaysia LHDN]",
-    tags: ["ASP.NET", "UBL 2.1", "OAuth"],
-    href: "/projects/irbm-middleware",
-  },
-];
+import { featuredProjects, skills } from "@/lib/data";
 
-const skills = {
-  languages: ["C#", "Python", "JavaScript", "TypeScript", "HTML/CSS", "SQL"],
-  frameworks: [".NET", "ASP.NET Web Forms", "React", "Next.js", "Entity Framework"],
-  tools: ["Vite", "Git", "Visual Studio", "Netlify", "CI/CD"],
-  core: ["Full-Stack Development", "System Architecture", "Database Design", "API Integration"],
-};
-
-// Fun hover animations for skill tags - each gets a unique effect!
 const hoverAnimations = [
   { scale: 1.1, rotate: 5 },
   { scale: 1.15, rotate: -5 },
@@ -405,29 +368,29 @@ export default function Home() {
                   href={project.href}
                   className="group block border-4 border-black bg-white p-6 transition-all hover:bg-black hover:text-white dark:border-white dark:bg-black dark:hover:bg-white dark:hover:text-black"
                 >
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-primary">
-                      {project.category}
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-primary">
+                        {project.category}
+                      </p>
+                      <h3 className="text-2xl font-black leading-tight">
+                        {project.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm leading-relaxed opacity-80">
+                      {project.description}
                     </p>
-                    <h3 className="text-2xl font-black leading-tight">
-                      {project.title}
-                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="border-2 border-current px-2 py-1 text-xs font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <p className="text-sm leading-relaxed opacity-80">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="border-2 border-current px-2 py-1 text-xs font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
                 </Link>
               </motion.div>
             ))}

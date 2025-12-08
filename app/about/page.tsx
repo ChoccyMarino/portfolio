@@ -1,6 +1,25 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+// Fun hover animations for skill tags - each gets a unique effect!
+const hoverAnimations = [
+  { scale: 1.1, rotate: 5 },
+  { scale: 1.15, rotate: -5 },
+  { scale: 1.05, rotate: 10 },
+  { scale: 1.1, rotate: -10 },
+  { scale: 1.12, rotate: 3 },
+  { scale: 1.08, rotate: -3 },
+  { scale: 1.1, rotate: 7 },
+  { scale: 1.15, rotate: -7 },
+  { scale: 1.05, rotate: -12 },
+  { scale: 1.12, rotate: 12 },
+  { scale: 1.1 },
+  { rotate: 6 },
+];
 
 const experiences = [
   {
@@ -60,7 +79,7 @@ export default function AboutPage() {
       </section>
 
       {/* Bio Section */}
-      <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+      <section className="border-4 border-black bg-white p-10 dark:border-white dark:bg-black">
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
             Professional Summary
@@ -90,7 +109,7 @@ export default function AboutPage() {
       </section>
 
       {/* Experience Timeline */}
-      <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+      <section className="border-4 border-black bg-white p-10 dark:border-white dark:bg-black">
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
             Professional Experience
@@ -134,7 +153,7 @@ export default function AboutPage() {
       </section>
 
       {/* Skills Section */}
-      <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+      <section className="border-4 border-black bg-white p-10 dark:border-white dark:bg-black">
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
             Technical Skills
@@ -145,13 +164,16 @@ export default function AboutPage() {
                 Languages
               </h3>
               <div className="flex flex-wrap gap-2">
-                {skills.languages.map((skill) => (
-                  <span
+                {skills.languages.map((skill, index) => (
+                  <motion.span
                     key={skill}
-                    className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                    className="border-2 border-black bg-secondary px-3 py-1.5 text-sm font-medium dark:border-white cursor-pointer"
+                    style={{ willChange: 'transform' }}
+                    whileHover={hoverAnimations[index % hoverAnimations.length]}
+                    transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -160,13 +182,16 @@ export default function AboutPage() {
                 Frameworks & Libraries
               </h3>
               <div className="flex flex-wrap gap-2">
-                {skills.frameworks.map((skill) => (
-                  <span
+                {skills.frameworks.map((skill, index) => (
+                  <motion.span
                     key={skill}
-                    className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                    className="border-2 border-black bg-secondary px-3 py-1.5 text-sm font-medium dark:border-white cursor-pointer"
+                    style={{ willChange: 'transform' }}
+                    whileHover={hoverAnimations[index % hoverAnimations.length]}
+                    transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -175,13 +200,16 @@ export default function AboutPage() {
                 Development Tools
               </h3>
               <div className="flex flex-wrap gap-2">
-                {skills.tools.map((skill) => (
-                  <span
+                {skills.tools.map((skill, index) => (
+                  <motion.span
                     key={skill}
-                    className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                    className="border-2 border-black bg-secondary px-3 py-1.5 text-sm font-medium dark:border-white cursor-pointer"
+                    style={{ willChange: 'transform' }}
+                    whileHover={hoverAnimations[index % hoverAnimations.length]}
+                    transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -190,13 +218,16 @@ export default function AboutPage() {
                 Database & Backend
               </h3>
               <div className="flex flex-wrap gap-2">
-                {skills.databases.map((skill) => (
-                  <span
+                {skills.databases.map((skill, index) => (
+                  <motion.span
                     key={skill}
-                    className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-sm text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                    className="border-2 border-black bg-secondary px-3 py-1.5 text-sm font-medium dark:border-white cursor-pointer"
+                    style={{ willChange: 'transform' }}
+                    whileHover={hoverAnimations[index % hoverAnimations.length]}
+                    transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -206,13 +237,16 @@ export default function AboutPage() {
               Core Competencies
             </h3>
             <div className="flex flex-wrap gap-2">
-              {skills.specializations.map((skill) => (
-                <span
+              {skills.specializations.map((skill, index) => (
+                <motion.span
                   key={skill}
-                  className="rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                  className="border-2 border-black bg-secondary px-4 py-2 text-sm font-medium dark:border-white cursor-pointer"
+                  style={{ willChange: 'transform' }}
+                  whileHover={hoverAnimations[index % hoverAnimations.length]}
+                  transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                 >
                   {skill}
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>
@@ -220,7 +254,7 @@ export default function AboutPage() {
       </section>
 
       {/* Education Section */}
-      <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+      <section className="border-4 border-black bg-white p-10 dark:border-white dark:bg-black">
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
             Education
@@ -247,7 +281,7 @@ export default function AboutPage() {
       </section>
 
       {/* Contact Info Section */}
-      <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+      <section className="border-4 border-black bg-white p-10 dark:border-white dark:bg-black">
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
             Get In Touch
