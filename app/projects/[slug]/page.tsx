@@ -6,6 +6,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { projects } from "@/lib/data";
+import { notFound } from "next/navigation";
+
+// Generate static params for all projects at build time
+export function generateStaticParams() {
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
 
 type ProjectPageProps = {
   params: {
@@ -13,11 +22,13 @@ type ProjectPageProps = {
   };
 };
 
-export default function ProjectDetailPage({ params }: ProjectPageProps) {
-  const projectTitle = params.slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+export default async function ProjectDetailPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
+  const project = projects.find((p) => p.slug === params.slug);
+
+  if (!project) {
+    notFound();
+  }
 
   return (
     <div className="space-y-12">
@@ -27,24 +38,29 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
           Projects
         </Link>
         <span>/</span>
-        <span className="text-zinc-900 dark:text-zinc-50">{projectTitle}</span>
+        <span className="text-zinc-900 dark:text-zinc-50">{project.title}</span>
       </nav>
 
       {/* Project Header */}
       <section className="space-y-4">
         <div className="flex items-center gap-2">
-          <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">
-            [Status Placeholder]
+          <span className={`rounded-full px-3 py-1 text-xs font-medium ${project.status === "In Production"
+            ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+            : project.status === "In Progress"
+              ? "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400"
+              : "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-400"
+            }`}>
+            {project.status}
           </span>
           <span className="text-sm text-zinc-500 dark:text-zinc-400">
-            [Period Placeholder]
+            {project.period}
           </span>
         </div>
         <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-50 sm:text-5xl">
-          {projectTitle}
+          {project.title}
         </h1>
         <p className="text-xl text-zinc-600 dark:text-zinc-400">
-          [Project tagline/subtitle placeholder]
+          {project.description}
         </p>
       </section>
 
@@ -57,7 +73,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 Organization
               </h3>
               <p className="text-base text-zinc-700 dark:text-zinc-300">
-                [Organization name placeholder]
+                {project.organization}
               </p>
             </div>
             <div className="space-y-2">
@@ -65,34 +81,17 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 Role
               </h3>
               <p className="text-base text-zinc-700 dark:text-zinc-300">
-                [Role placeholder - e.g., Full-Stack Developer]
+                Full-Stack Developer
               </p>
             </div>
             <div className="space-y-2">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500">
-                Timeline
+                Category
               </h3>
               <p className="text-base text-zinc-700 dark:text-zinc-300">
-                [Timeline placeholder - e.g., 3 months]
+                {project.category}
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Project Description */}
-      <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="space-y-6">
-          <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-            Project Overview
-          </h2>
-          <div className="space-y-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-            <p>
-              [Overview paragraph 1 placeholder - What was the project about? What problem did it solve?]
-            </p>
-            <p>
-              [Overview paragraph 2 placeholder - Context about the client/organization and their needs]
-            </p>
           </div>
         </div>
       </section>
@@ -104,13 +103,10 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
             The Challenge
           </h2>
           <div className="space-y-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-            <p>
-              [Challenge description placeholder - What were the main technical challenges?]
-            </p>
             <ul className="list-inside list-disc space-y-2 pl-4">
-              <li>[Challenge point 1 placeholder]</li>
-              <li>[Challenge point 2 placeholder]</li>
-              <li>[Challenge point 3 placeholder]</li>
+              {project.challenges.map((challenge, index) => (
+                <li key={index}>{challenge}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -123,13 +119,10 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
             The Solution
           </h2>
           <div className="space-y-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-            <p>
-              [Solution description placeholder - How did you approach solving these challenges?]
-            </p>
             <ul className="list-inside list-disc space-y-2 pl-4">
-              <li>[Solution approach 1 placeholder]</li>
-              <li>[Solution approach 2 placeholder]</li>
-              <li>[Solution approach 3 placeholder]</li>
+              {project.solutions.map((solution, index) => (
+                <li key={index}>{solution}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -148,12 +141,11 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                    [Tech 1]
-                  </span>
-                  <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                    [Tech 2]
-                  </span>
+                  {project.technologies.backend.map((tech) => (
+                    <span key={tech} className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -163,12 +155,11 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                    [Tech 1]
-                  </span>
-                  <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                    [Tech 2]
-                  </span>
+                  {project.technologies.frontend.map((tech) => (
+                    <span key={tech} className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -178,12 +169,11 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                    [Tech 1]
-                  </span>
-                  <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                    [Tech 2]
-                  </span>
+                  {project.technologies.database.map((tech) => (
+                    <span key={tech} className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -198,38 +188,16 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
             Key Features
           </h2>
           <div className="grid gap-6 sm:grid-cols-2">
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                [Feature 1 Title]
-              </h3>
-              <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                [Feature 1 description placeholder]
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                [Feature 2 Title]
-              </h3>
-              <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                [Feature 2 description placeholder]
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                [Feature 3 Title]
-              </h3>
-              <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                [Feature 3 description placeholder]
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                [Feature 4 Title]
-              </h3>
-              <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                [Feature 4 description placeholder]
-              </p>
-            </div>
+            {project.keyFeatures.map((feature, index) => (
+              <div key={index} className="space-y-3">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+                  {feature.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -241,36 +209,23 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
             Results & Impact
           </h2>
           <div className="grid gap-6 sm:grid-cols-3">
-            <div className="space-y-2 text-center">
-              <p className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
-                [Metric 1]
-              </p>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                [Metric 1 description]
-              </p>
-            </div>
-            <div className="space-y-2 text-center">
-              <p className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
-                [Metric 2]
-              </p>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                [Metric 2 description]
-              </p>
-            </div>
-            <div className="space-y-2 text-center">
-              <p className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
-                [Metric 3]
-              </p>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                [Metric 3 description]
-              </p>
-            </div>
+            {project.impact.map((item, index) => (
+              <div key={index} className="space-y-2 text-center">
+                <p className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+                  {item.metric}
+                </p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
           <div className="pt-4">
+            <h3 className="mb-2 font-semibold">Key Achievements</h3>
             <ul className="list-inside list-disc space-y-2 text-base text-zinc-600 dark:text-zinc-400">
-              <li>[Impact point 1 placeholder]</li>
-              <li>[Impact point 2 placeholder]</li>
-              <li>[Impact point 3 placeholder]</li>
+              {project.achievements.map((achievement, index) => (
+                <li key={index}>{achievement}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -283,41 +238,41 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
             Key Learnings
           </h2>
           <div className="space-y-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-            <p>
-              [Learnings description placeholder - What did you learn from this project?]
-            </p>
             <ul className="list-inside list-disc space-y-2 pl-4">
-              <li>[Learning 1 placeholder]</li>
-              <li>[Learning 2 placeholder]</li>
-              <li>[Learning 3 placeholder]</li>
+              {project.learnings.map((learning, index) => (
+                <li key={index}>{learning}</li>
+              ))}
             </ul>
           </div>
         </div>
       </section>
 
       {/* Project Links (if applicable) */}
-      <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-            Project Links
-          </h2>
-          <div className="flex flex-wrap gap-4">
-            <Button asChild variant="outline" disabled>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                View Live Site
-              </a>
-            </Button>
-            <Button asChild variant="outline" disabled>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                View Repository
-              </a>
-            </Button>
+      {(project.links?.live || project.links?.repo) && (
+        <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+              Project Links
+            </h2>
+            <div className="flex flex-wrap gap-4">
+              {project.links?.live && (
+                <Button asChild variant="outline">
+                  <a href={project.links.live} target="_blank" rel="noopener noreferrer">
+                    View Live Site
+                  </a>
+                </Button>
+              )}
+              {project.links?.repo && (
+                <Button asChild variant="outline">
+                  <a href={project.links.repo} target="_blank" rel="noopener noreferrer">
+                    View Repository
+                  </a>
+                </Button>
+              )}
+            </div>
           </div>
-          <p className="text-sm text-zinc-500">
-            [Note: Links will be added if publicly available]
-          </p>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Navigation */}
       <section className="flex justify-between border-t border-zinc-200 pt-8 dark:border-zinc-800">

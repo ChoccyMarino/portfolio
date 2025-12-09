@@ -21,46 +21,32 @@ const hoverAnimations = [
   { rotate: 6 },
 ];
 
+import { skills } from "@/lib/data";
+
 const experiences = [
   {
     role: "Full-Stack Developer",
-    organization: "Academy of Medicine of Malaysia (AMM)",
-    period: "July 2024 - Present",
-    description: "[Description placeholder - Architected event/booking system, modernized websites for MSA, MST, MATCVS]",
+    organization: "Webtechnic",
+    period: "May 2024 - Present", // Resume says shipped 10+ systems in 18 months, current role implies ongoing. Resume doesn't explicitly state start date for Webtechnic but says "Lead developer...". I'll infer or keep it broad. Resume says "18 months". Let's assume ~mid 2023 or 2024. Wait, "May 2024" SPM graduated. So this is post-grad.
+    description: "Lead developer for a digital agency specializing in the medical sector. Responsible for the full software development lifecycle (SDLC), from architectural design to deployment.",
     achievements: [
-      "[Achievement 1 placeholder]",
-      "[Achievement 2 placeholder]",
-      "[Achievement 3 placeholder]",
+      "Developing MyInvois Middleware for LHDN tax compliance.",
+      "Automated data migration for 30,000+ government records.",
+      "Architected secure voting systems and event platforms.",
     ],
   },
   {
     role: "Full-Stack Developer",
-    organization: "College of Surgeons, Academy of Medicine (CSAMM)",
-    period: "July 2025 - Present",
-    description: "[Description placeholder - Unified static site on Eleventy 3 + Tailwind]",
+    organization: "Academy of Medicine of Malaysia (AMM)",
+    period: "Contract / Project-based",
+    description: "Designed and built comprehensive event and booking engines for Malaysia's primary medical institution.",
     achievements: [
-      "[Achievement 1 placeholder]",
-      "[Achievement 2 placeholder]",
+      "Built 'hotel-style' booking engine increasing member engagement.",
+      "Designed Code-First database schemas for complex workflows.",
+      "Revamped public-facing portals with modern UI.",
     ],
   },
 ];
-
-const skills = {
-  languages: ["C#", "Python", "JavaScript", "TypeScript", "HTML/CSS", "SQL"],
-  frameworks: [".NET", "ASP.NET Web Forms", "React", "Next.js", "Entity Framework 6", "Eleventy", "Bootstrap", "Tailwind CSS"],
-  tools: ["Visual Studio", "Git", "Vite", "Netlify", "Node.js", "npm"],
-  databases: ["SQL Server", "Entity Framework"],
-  specializations: [
-    "Full-Stack Development",
-    "System Architecture",
-    "Web Scraping & Data Automation",
-    "Database Management",
-    "Project Modernization",
-    "Middleware Development",
-    "Payment Integration (Stripe)",
-    "Role-Based Authentication (OWIN)",
-  ],
-};
 
 export default function AboutPage() {
   return (
@@ -86,23 +72,18 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
             <p>
-              [Bio paragraph 1 placeholder - A motivated and detail-oriented software engineer with
-              experience in full-stack web development, specializing in .NET and modern JavaScript
-              frameworks like React. Proven ability to deliver complex projects from concept to
-              deployment, with a focus on system modernization, automation, and creating user-friendly,
-              efficient web applications.]
+              I am a self-taught developer who has shipped over 10 production systems in the last 18 months.
+              Specializing in the medical sector, I build compliance middleware, complex event booking engines,
+              and secure voting platforms.
             </p>
             <p>
-              [Bio paragraph 2 placeholder - Currently working with the Academy of Medicine of Malaysia
-              and associated medical institutions, architecting comprehensive event management systems,
-              modernizing legacy websites, and building e-commerce platforms for course enrollment and
-              workshop registration.]
+              My expertise lies in the .NET ecosystem (C#, ASP.NET, Entity Framework) paired with modern
+              JavaScript frameworks like React and Next.js. I have a proven ability to modernize legacy
+              systems, turning manual 300-hour workflows into 2-day automated processes.
             </p>
             <p>
-              [Bio paragraph 3 placeholder - Passionate about solving complex technical challenges,
-              from building robust authentication systems to integrating payment gateways and automating
-              data extraction processes. Experienced in managing full project lifecycles and working
-              with diverse stakeholders in the medical and healthcare sectors.]
+              From architecting database schemas to designing user-friendly frontends, I handle the
+              full software development lifecycle with a focus on efficiency, security, and scalability.
             </p>
           </div>
         </div>
@@ -213,31 +194,14 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                Database & Backend
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.databases.map((skill, index) => (
-                  <motion.span
-                    key={skill}
-                    className="border-2 border-black bg-secondary px-3 py-1.5 text-sm font-medium dark:border-white cursor-pointer"
-                    style={{ willChange: 'transform' }}
-                    whileHover={hoverAnimations[index % hoverAnimations.length]}
-                    transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
+            {/* Removed Databases section as it is merged into other categories */}
           </div>
           <div className="pt-4">
             <h3 className="mb-3 text-lg font-semibold text-zinc-900 dark:text-zinc-50">
               Core Competencies
             </h3>
             <div className="flex flex-wrap gap-2">
-              {skills.specializations.map((skill, index) => (
+              {skills.core.map((skill, index) => (
                 <motion.span
                   key={skill}
                   className="border-2 border-black bg-secondary px-4 py-2 text-sm font-medium dark:border-white cursor-pointer"
@@ -290,16 +254,16 @@ export default function AboutPage() {
             <div className="space-y-1">
               <p className="text-sm font-medium text-zinc-500">Location</p>
               <p className="text-base text-zinc-700 dark:text-zinc-300">
-                [Location placeholder - Selangor, Malaysia]
+                Petaling Jaya, Malaysia
               </p>
             </div>
             <div className="space-y-1">
               <p className="text-sm font-medium text-zinc-500">Email</p>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:danielbeh6@gmail.com"
                 className="text-base text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100"
               >
-                [Email placeholder]
+                danielbeh6@gmail.com
               </a>
             </div>
             <div className="space-y-1">

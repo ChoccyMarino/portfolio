@@ -19,8 +19,8 @@ export default function ContactPage() {
           Let&apos;s Work Together
         </h1>
         <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-          [Intro text placeholder - Interested in collaborating on a project or discussing
-          opportunities? Feel free to reach out through any of the channels below.]
+          I'm always open to discussing new projects, converting legacy systems, or handling complex integrations.
+          Feel free to reach out through any of the channels below.
         </p>
       </section>
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
                 Send a Message
               </h2>
               <p className="text-sm">
-                [Form description placeholder - Fill out the form below and I&apos;ll get back to you as soon as possible]
+                Fill out the form below and I'll get back to you as soon as possible.
               </p>
             </div>
             <form className="space-y-6">
@@ -49,7 +49,7 @@ export default function ContactPage() {
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="[Your name placeholder]"
+                  placeholder="Your Name"
                   className="w-full border-2 border-black bg-white px-4 py-2.5 text-sm placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary dark:border-white dark:bg-black dark:placeholder:text-zinc-500"
                   required
                   disabled
@@ -68,7 +68,7 @@ export default function ContactPage() {
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="[your.email@example.com placeholder]"
+                  placeholder="your@email.com"
                   className="w-full border-2 border-black bg-white px-4 py-2.5 text-sm placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary dark:border-white dark:bg-black dark:placeholder:text-zinc-500"
                   required
                   disabled
@@ -87,7 +87,7 @@ export default function ContactPage() {
                   type="text"
                   id="subject"
                   name="subject"
-                  placeholder="[Subject placeholder]"
+                  placeholder="Subject"
                   className="w-full border-2 border-black bg-white px-4 py-2.5 text-sm placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary dark:border-white dark:bg-black dark:placeholder:text-zinc-500"
                   required
                   disabled
@@ -106,7 +106,7 @@ export default function ContactPage() {
                   id="message"
                   name="message"
                   rows={6}
-                  placeholder="[Your message placeholder...]"
+                  placeholder="How can I help you?"
                   className="w-full border-2 border-black bg-white px-4 py-2.5 text-sm placeholder:text-zinc-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary dark:border-white dark:bg-black dark:placeholder:text-zinc-500"
                   required
                   disabled
@@ -132,7 +132,7 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle>Contact Information</CardTitle>
               <CardDescription>
-                [Description placeholder - Prefer to reach out directly? Here are my contact details]
+                Prefer to reach out directly? Here are my contact details.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -141,10 +141,10 @@ export default function ContactPage() {
                   Email
                 </h3>
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:danielbeh6@gmail.com"
                   className="block text-base text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                 >
-                    danielbeh6@gmail.com
+                  danielbeh6@gmail.com
                 </a>
               </div>
               <div className="space-y-2">
@@ -174,7 +174,7 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle>Connect Online</CardTitle>
               <CardDescription>
-                [Description placeholder - Find me on these platforms]
+                Find me on these platforms.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
@@ -236,12 +236,12 @@ export default function ContactPage() {
                 <div className="flex items-center gap-2">
                   <div className="h-3 w-3 border-2 border-green-500 bg-green-500"></div>
                   <p className="text-sm font-medium">
-                    [Status placeholder - Available for freelance work]
+                    Available for freelance & contract work
                   </p>
                 </div>
                 <p className="text-sm">
-                  [Description placeholder - Currently accepting new projects and opportunities.
-                  Typical response time: within 24 hours]
+                  Currently accepting new projects and opportunities.
+                  Typical response time: within 24 hours.
                 </p>
               </div>
             </CardContent>
@@ -256,8 +256,8 @@ export default function ContactPage() {
             Prefer to Schedule a Call?
           </h2>
           <p className="text-base">
-            [CTA text placeholder - I&apos;m always happy to discuss project ideas, collaboration
-            opportunities, or just chat about technology]
+            I'm always happy to discuss project ideas, collaboration
+            opportunities, or just chat about technology.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-2">
             <Button asChild size="lg" disabled>

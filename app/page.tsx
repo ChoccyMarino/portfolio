@@ -143,9 +143,10 @@ export default function Home() {
               Full-Stack Developer specializing in .NET and modern JavaScript frameworks
             </motion.p>
             <p className="max-w-3xl text-lg leading-relaxed">
-              [Brief intro placeholder - A motivated and detail-oriented software engineer with experience
-              in full-stack web development. Proven ability to deliver complex projects from concept to
-              deployment, with a focus on system modernization and creating user-friendly applications.]
+              Self-taught developer with over 18 months of experience shipping production systems.
+              Specializing in medical institution platforms and compliance middleware, I have a proven
+              track record of delivering complex projects—from concept to deployment—focusing on system modernization,
+              automation, and efficiency.
             </p>
             <div className="flex flex-wrap gap-3 pt-4">
               <Button asChild size="lg">
@@ -193,12 +194,14 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="space-y-4">
               <p className="text-base leading-relaxed">
-                [Bio content placeholder - Currently working with Academy of Medicine of Malaysia and
-                associated institutions, architecting full-stack solutions for medical organizations.]
+                Currently serving as a Full-Stack Developer at Webtechnic, where I lead the development of
+                automation tools and compliance middleware for national medical societies. My work involves
+                bridging legacy systems with modern digital infrastructure, such as LHDN's MyInvois.
               </p>
               <p className="text-base leading-relaxed">
-                [Experience summary placeholder - Specialized in modernizing legacy systems, building
-                e-commerce platforms, and creating scalable web applications.]
+                I have architected and deployed multiple enterprise-grade solutions, including event
+                booking engines, secure voting platforms, and e-commerce systems, primarily serving
+                the medical sector in Malaysia.
               </p>
             </div>
             <div className="space-y-4 border-4 border-black p-6 dark:border-white">
@@ -207,7 +210,7 @@ export default function Home() {
               </h3>
               <div className="space-y-2">
                 <p className="font-bold">
-                  [School name placeholder]
+                  SMK Bandar Utama Damansara (4)
                 </p>
                 <p className="text-sm text-muted-foreground">
                   SPM Graduate - May 2024
@@ -350,8 +353,8 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              [Section description placeholder - A selection of key projects demonstrating full-stack
-              development capabilities]
+              A selection of key projects demonstrating proficiency in full-stack development,
+              system architecture, and process automation.
             </motion.p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
@@ -365,7 +368,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Link
-                  href={project.href}
+                  href={`/projects/${project.slug}`}
                   className="group block border-4 border-black bg-white p-6 transition-all hover:bg-black hover:text-white dark:border-white dark:bg-black dark:hover:bg-white dark:hover:text-black"
                 >
                   <div className="space-y-4">
@@ -423,8 +426,8 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            [CTA text placeholder - Interested in collaborating on a project or hiring for a position?
-            I'm always open to discussing new opportunities and interesting challenges.]
+            I'm always interested in new opportunities, whether it's full-time work, freelance projects,
+            or interesting collaborations. Let's discuss how I can help your team.
           </motion.p>
           <div className="flex flex-wrap gap-4 pt-2">
             <Button asChild size="lg" variant="secondary">
@@ -436,12 +439,12 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View GitHub
+                GitHub
               </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-2 border-current bg-transparent text-current hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
               <a href="mailto:danielbeh6@gmail.com">
-                Send Email
+                Email
               </a>
             </Button>
           </div>
